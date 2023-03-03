@@ -1,0 +1,11 @@
+publicHttp:
+  host: 127.0.0.1
+  port: 8888
+  tags: public
+  path:
+  headers:
+    content-type: application/json
+
+msgEventBus:
+  address: student
+  tags: admin
