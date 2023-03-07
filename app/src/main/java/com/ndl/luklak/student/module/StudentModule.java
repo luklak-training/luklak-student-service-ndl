@@ -5,6 +5,7 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.ndl.common.pgpool.supplier.PgConnectionSupplier;
 import com.ndl.idealer2.http.config.HttpStatusErrorMapping;
+import com.ndl.luklak.data.AppConfig;
 import com.ndl.luklak.repository.PgStudentRepository;
 import com.ndl.luklak.student.IStudentRepository;
 import com.ndl.luklak.student.IStudentService;
@@ -19,6 +20,7 @@ import static com.ndl.luklak.utils.DbUtils.buildPgConnectionSupplier;
 @AllArgsConstructor
 public class StudentModule extends AbstractModule {
   private final Vertx vertx;
+  private final AppConfig appConfig;
 
   @Provides
   @Singleton
@@ -59,6 +61,6 @@ public class StudentModule extends AbstractModule {
   @Provides
   @Singleton
   public PgConnectionSupplier pgConnectionSupplier() {
-    return buildPgConnectionSupplier(vertx);
+    return buildPgConnectionSupplier(vertx, appConfig.getDatasource());
   }
 }

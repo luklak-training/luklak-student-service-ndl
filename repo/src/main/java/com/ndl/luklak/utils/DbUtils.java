@@ -2,6 +2,7 @@ package com.ndl.luklak.utils;
 
 import com.ndl.common.pgpool.supplier.PgConnectionSupplier;
 import com.ndl.common.uri.ParsedUri;
+import com.ndl.luklak.student.PostgresConfig;
 import io.vertx.core.Vertx;
 import io.vertx.pgclient.PgConnectOptions;
 import io.vertx.pgclient.PgPool;
@@ -36,14 +37,12 @@ public class DbUtils {
     return PgPool.pool(vertx, connectOptions, poolOptions);
   }
 
-  public static PgConnectionSupplier buildPgConnectionSupplier(Vertx vertx) {
-    final Properties properties = ConfigUtils.getInstance().getProperties();
-
+  public static PgConnectionSupplier buildPgConnectionSupplier(Vertx vertx, PostgresConfig postgresConfig) {
     ParsedUri parsedUri =
-      ParsedUri.builder().address(properties.getProperty(HOST_CONFIG) + ":" + properties.getProperty(PORT_CONFIG))
-        .user(properties.getProperty(USERNAME_CONFIG))
-        .password(properties.getProperty(PASSWORD_CONFIG))
-        .path(properties.getProperty(DATABASE_CONFIG))
+      ParsedUri.builder().address(postgresConfig.getHost() + ":" + postgresConfig.getPort())
+        .user(postgresConfig.getUsername())
+        .password(postgresConfig.getPassword())
+        .path(postgresConfig.getDatabase())
         .scheme("postgres-steady").build();
 
     return PgConnectionSupplier.from(parsedUri, vertx);

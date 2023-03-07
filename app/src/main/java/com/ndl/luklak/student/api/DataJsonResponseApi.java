@@ -1,4 +1,4 @@
-package com.ndl.luklak.student.handler;
+package com.ndl.luklak.student.api;
 
 import com.ndl.idealer2.core.api.IApi;
 import com.ndl.idealer2.core.api.IRequest;

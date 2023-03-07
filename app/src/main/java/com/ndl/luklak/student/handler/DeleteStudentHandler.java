@@ -6,6 +6,7 @@ import com.ndl.idealer2.core.api.IRequest;
 import com.ndl.idealer2.core.api.RegisterIApi;
 import com.ndl.luklak.student.IStudentService;
 import com.ndl.luklak.student.Student;
+import com.ndl.luklak.student.api.DataJsonResponseApi;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

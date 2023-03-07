@@ -4,6 +4,9 @@
 ### Eclipse ###
 
 .metadata
+.mvn
+.idea
+.editorconfig
 bin/
 tmp/
 *.tmp

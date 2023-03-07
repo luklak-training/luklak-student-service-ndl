@@ -13,5 +13,15 @@
         <module name="repo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="17" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="app" options="" />
+      <module name="common" options="" />
+      <module name="core" options="" />
+      <module name="luklak" options="" />
+      <module name="repo" options="" />
+    </option>
   </component>
 </project>

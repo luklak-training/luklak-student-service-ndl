@@ -20,9 +20,9 @@ public class StudentService implements IStudentService {
     return studentRepository.insert(student)
       .whenComplete((item, err) -> {
         if (err != null) {
-          log.info("create student " + err.getMessage());
+          log.error("create student " + err.getMessage());
         } else {
-          log.error("Create student " + item);
+          log.info("Create student " + item);
         }
       }).thenApply(StudentMapper::toResponse);
   }
