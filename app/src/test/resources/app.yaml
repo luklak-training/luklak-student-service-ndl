@@ -1,0 +1,18 @@
+publicHttp:
+  host: 127.0.0.1
+  port: 8888
+  tags: public
+  path:
+  headers:
+    content-type: application/json
+
+msgEventBus:
+  address: student
+  tags: admin
+
+datasource:
+  host: localhost
+  port: 5432
+  database: student
+  username: root
+  password: root

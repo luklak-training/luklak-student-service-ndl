@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="15">
+
+  <Properties>
+    <Property name="log-path">logs/</Property>
+    <Property name="blank-pattern">%msg%n</Property>
+    <Property name="only-thread-name-pattern">%t -> %msg%n</Property>
+    <Property name="default-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+    <Property name="debug-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} (%F:%L) - %msg%n</Property>
+    <Property name="colorized-pattern">%d{yyyy-MM-dd HH:mm:ss} [%red{%10.25t}] [%green{%-5p}] [%blue{%c{1}:%L}] - %m%n
+    </Property>
+
+  </Properties>
+
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${colorized-pattern}"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Root level="info" includeLocation="false">
+      <AppenderRef ref="console"/>
+      <AppenderRef ref="sentry" level="error"/>
+    </Root>
+    <Logger name="com.ndl" level="debug" additivity="true" includeLocation="false"/>
+  </Loggers>
+</Configuration>
